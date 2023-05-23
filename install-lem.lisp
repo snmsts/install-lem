@@ -1,7 +1,9 @@
 (defpackage :install-lem
   (:use :cl))
 (in-package :install-lem)
-
+#+ros.init
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (ros:include "util-install-quicklisp"))
 #+ros.init
 (defun install-dependencies ()
   (loop for l in '(("checkout" "log4cl")
